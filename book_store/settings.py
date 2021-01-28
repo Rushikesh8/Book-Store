@@ -124,7 +124,7 @@ USE_TZ = True
 
 
 ALLOWED_HOSTS =[
-    '*'
+    '*',
 ]
 
 # Static files (CSS, JavaScript, Images)
