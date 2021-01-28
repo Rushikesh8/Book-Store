@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import django_heroku
-import dj_database_url
-from decouple import config
+#import dj_database_url
+#from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'book_store.urls'
@@ -137,6 +137,6 @@ STRIPE_SECRET_KEY='sk_test_51IAteWK9flYBcCo39xuDzRDXtaH3mMD6hNN99A5bVMbbzkg74suO
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())

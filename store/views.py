@@ -21,20 +21,9 @@ def home(request,category_slug=None):
         products = Product.objects.filter(category=category_page,available=True)
     else:
         products = Product.objects.all().filter(available=True)
+    
 
-    book_list = Product.objects.all()
-    paginator = Paginator(book_list,3)
-    page_request_var = 'page'
-    page = request.GET.get(page_request_var)
-    try:
-        paginated_queryset = paginator.page(page)
-    except PageNotAnInteger:
-        paginated_queryset = paginator.page(1)
-    except EmptyPage:
-        paginated_queryset = paginator.page(paginator.num_pages)    
-
-    return render(request,'home.html',context= {'category':category_page,'products':products,'queryset':paginated_queryset, 
-    'page_request_var':page_request_var})
+    return render(request,'home.html',context= {'category':category_page,'products':products})
 
 def product_detail(request,category_slug,product_slug):
     try:
@@ -230,7 +219,7 @@ def viewOrder(request, order_id):
 
 def search(request):
     products = Product.objects.filter(name__contains=request.GET['name'])
-    return render(request,'search.html',context={'queryset':products})
+    return render(request,'home.html',context={'products':products})
 
 def contact(request):
     if request.method == 'POST':
