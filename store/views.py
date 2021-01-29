@@ -21,7 +21,6 @@ def home(request,category_slug=None):
         products = Product.objects.filter(category=category_page,available=True)
     else:
         products = Product.objects.all().filter(available=True)
-    
 
     return render(request,'home.html',context= {'category':category_page,'products':products})
 
@@ -37,11 +36,11 @@ def product_detail(request,category_slug,product_slug):
     reviews = Review.objects.filter(product=product)       
     return render(request,'product.html',context={'product':product,'reviews':reviews})    
 
-def _cart_id(request):
-    cart = request.session.session_key
-    if not cart:
-        cart = request.session.create()
-    return cart
+#def _cart_id(request):
+#    cart = request.session.session_key
+#    if not cart:
+#        cart = request.session.create()
+#    return cart
 
 def add_cart(request, product_id):
     product = Product.objects.get(id=product_id)
